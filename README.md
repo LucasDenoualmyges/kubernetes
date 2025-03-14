@@ -2,19 +2,33 @@ Voici comment s'architecte le projet :
 Architecture du projet
 
 projet-esgi/
+
 ─ Dockerfile
+
 ─ docker-compose.yml
+
 ─ paymybuddy.jar
+
 ─ initdb/
+
 ─ kubernetes/
+
 ── backend-deployment.yaml
+
 ── backend-service.yaml
+
 ── mysql-deployment.yaml
+
 ── mysql-service.yaml
+
 ── mysql-pvc.yaml
+
 ── mysql-configmap.yaml
+
 ── mysql-secret.yaml
+
 ── mysql-init-configmap.yaml
+
 ── README.md
 
 ## Le Dockerfile

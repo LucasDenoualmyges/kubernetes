@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: paymybuddy-backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: paymybuddy-backend
+  template:
+    metadata:
+      labels:
+        app: paymybuddy-backend
+    spec:
+      containers:
+      - name: paymybuddy-backend
+        image: bard/paymybuddy-backend:latest
+        ports:
+        - containerPort: 8080
+        env:
+        - name: SPRING_DATASOURCE_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: mysql-secret
+              key: username
+        - name: SPRING_DATASOURCE_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: mysql-secret
+              key: password
+        - name: SPRING_DATASOURCE_URL
+          valueFrom:
+            configMapKeyRef:
+              name: mysql-config
+              key: connection-url

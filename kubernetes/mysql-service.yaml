@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: paymybuddy-db
+spec:
+  selector:
+    app: paymybuddy-db
+  ports:
+  - port: 3306
+    targetPort: 3306
+  type: ClusterIP
